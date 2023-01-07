@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- pip install scikit-learn=0.18 -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
@@ -226,6 +227,14 @@
         <button class="btn btn-lg btn-primary" type="submit">
           Predict
         </button>
+        {% if label  %}
+            {% if label == 1 %}
+                <p class="btn btn-lg btn-success">Will Purchase</p>
+            {% endif %}
+            {% if label == -1 %}
+                <p class="btn btn-lg btn-danger">Will Not Purchase</p>
+            {% endif %}
+        {% endif %}
       <p class="mt-5 mb-3 text-muted">&copy; Alpheratz</p>
     </form>
   </body>

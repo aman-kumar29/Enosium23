@@ -1,5 +1,5 @@
 from flask import Flask,render_template,request 
-import pickle 
+import pickle  
 import pandas as pd
 
 app=Flask(__name__)
@@ -8,7 +8,7 @@ model = pickle.load(open('model.pkl','rb'))
 def home():
     return render_template('index.html')
 
-@app.route('/predict',method=['POST'])
+@app.route('/predict',methods=['POST'])
 def predict():
     maintainance=request.form.get('peoplename')
     loan_history=request.form.get('loan_history')
@@ -35,7 +35,11 @@ def predict():
     li=[maintainance,loan_history,purpose,loan_amount,guarentor,employment_year,marital,loan_current,
     age,current_account,savings_account,installment,plans,abroad,telephone,duration,property,job,house,address] 
     
-    model.predict([li])
+    result = model.predict([li])[0]
+    if(result<1.3):
+        return render_template('index.html', label =1)
+    else:
+        return render_template('index.html', label =-1)
 
     
 
