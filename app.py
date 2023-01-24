@@ -36,7 +36,7 @@ def predict():
     age,current_account,savings_account,installment,plans,abroad,telephone,duration,property,job,house,address] 
     
     result = model.predict([li])[0]
-    if(result<1.3):
+    if(result==1):
         return render_template('index.html', label =1)
     else:
         return render_template('index.html', label =-1)

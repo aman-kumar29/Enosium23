@@ -5,236 +5,500 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
     <meta
-      name="author"
-      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
-    />
+      name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors"/>
     <meta name="generator" content="Hugo 0.104.2" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <title>Enosium23</title>
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    />
-    <link
-      href="/docs/5.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    />
-
-    <!-- <meta name="theme-color" content="#712cf9" /> -->
-
-    <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="/style.css"  /> 
+    <!-- Custom styles for this template --> 
   </head>
-  <body class="text-center">
+  <body class="text-center"> 
+    <style>
+        /* ===== Google Font Import - Poppins ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ADD8E6;
+}
+.aditya{
+    text-align: center;
+    font-size: 27px;
+    font-weight: bold;
+    text-transform: uppercase; 
+    font-family: 'Poppins', sans-serif;
+    border: #72bcd4 solid 1px;
+    background-color: #72bcd4;
+    /* width: 350px; */
+    display: inline-block;
+    border-radius: 0.5rem;
+    padding: 0 7px ;
+}
+.adi{
+    text-align: center;
+}
+img .cover {
+    border-radius: 50%;
+    
+}
+.header{
+    position: absolute;
+    top: 10px;
+}
+
+.container{
+    position: relative;
+    max-width: 1500px;
+    width: 100%;
+    border-radius: 6px;
+    padding: 30px;
+    margin: 0 15px;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgb(0, 0, 0, 0.1);
+}
+.container header{
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+.container header::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 3px;
+    width: 27px;
+    border-radius: 8px;
+    background-color: #ADD8E6;
+
+}
+.container form{
+    position: relative;
+    margin-top: 16px;
+    min-height: 550px;
+    background-color: #fff;
+    overflow: hidden;
+}
+.container form .form{
+    position: absolute;
+    background-color: #fff;
+    transition: 0.3s ease;
+}
+.container form .view{
+    display: flex;
+    flex-direction: row;
+}
+
+.container form .form.second{
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(100%);
+}
+form.secActive .form.second{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+form.secActive .form.first{
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-100%);
+}
+
+/* .container form .details {
+    margin-top: 30px;
+}
+.container form .details.ID {
+    margin-top: 20px;
+} */
+.container form .title{
+    display: block;
+    margin: 8px ;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 6px 0;
+    color: #333;
+}
+.container form .fields{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+form .fields .input-field{
+    display: flex;
+    width: calc(100%/2 - 15px);
+    flex-direction: column;
+    margin: 4px 0;
+}
+.input-field label{  
+    font-size: 12px;
+    font-weight: 500;
+    color: #2e2e2e;
+}
+.input-field input, select{
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    height: 38px;
+    margin: 8px 0;
+}
+.input-field input::is(:focus, :valid) {
+    box-shadow: 0 3px 6px rgb(0,0, 0,0.13);
+}
+.input-field input[type = "date"] {
+    color: #707070;
+}
+.input-field input[type = "date"]:valid {
+    color: #333;
+}
+.container form button, .backBtn, .submit{
+    display: inline;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    max-width: 200px;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: rgba(255, 255, 255, 0.973);
+    border-radius: 5px;
+    margin: 25px 7px;
+    background-color: #72bcd4;
+    transition: all 0.3s linear;
+    cursor: pointer;
+}
+.container form button,
+.container form .backBtn, .submit{
+    font-size: 14px;
+    font-weight: 400;
+}
+.container form .btnText{
+    font-size: 14px;
+    font-weight: 400;
+    display: inline-block;
+}
+form button{
+    float: right;
+}
+
+form button:hover{
+    background-color: #39a2c5;
+}
+form .backBtn i{
+    margin: 0 6px;
+}
+form .backBtn i{
+    transform: rotate(180deg);
+}
+form button i,
+form.buttons{
+    display: inline-flex;
+    align-items: center;
+}
+form.buttons button, .backBtn{
+    margin-right: 14px;
+} 
+form .buttons{
+    display: inline;
+}
+@media(max-width: 750px) {
+    .container form{
+        overflow-y: scroll;
+    }
+    .container form::-webkit-scrollbar{
+        display: none;
+    }
+    form .fields .input-field{
+        width: calc(100%/2 - 15px);
+    }
+}
+@media (max-width: 550px){
+    form .fields .input-field{
+        width: 100%;
+    }
+}
+    </style>
+    <div></div>
+    
+    <div class="container">
+    <header ><span>Prediction Form</span>
+    </header>
+
     <!-- <main class="form-signin w-100"> -->
-    <form action="/predict" method="post">
-      <img
-        class="mb-4"
-        src="https://starwalk.space/gallery/images/october-2019-asterisms-for-autumn-nights/1920x1080.jpg"
-        alt=""
-        width="80"
-        height="80"
-        style="border-radius: 100%"
-      />
-      <h1 >Fill For Predicting</h1>
+      <form action="/predict" method="post">
+        <div class="form first">
+            <div class="view">
+                <div class="image">
+                    <img src="https://github.com/AdityaLahane-2003/Enosium23/blob/master/templates/images/image.png?raw=true" width="400">
+                </div>
 
-      <div class="form-control ">
-        <label for="maintainance">No. of people who will provide maintainance</label>
-        <input id="maintainance"  type="number" name="peoplename" value="main1" placeholder="People">
-        </div>
-  
-        <div class="form-control">
-          <label for="loan">Loan History</label>
-          <select name="loan_history" id="loan">
-            <option value="select">Select Loan History</option>
-            <option value="0">All loans at this bank paid back duly</option>
-            <option value="1">Critical account/ other loan existing(not at this bank)</option>
-            <option value="2">Delay in apying of loans in the past</option>
-            <option value="3">existing loans paid back duly till now</option>
-            <option value="4">No loans taken/All loans paid back duly</option>
-          </select>
-        </div> 
+                <div class="details presonal">
+                    <span class="title">Loan Details</span>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label for="maintainance">No. of people who will provide maintainance</label>
+                            <input id="maintainance" type="number" name="peoplename" value="main1" placeholder="People" required>
+                        </div>
 
-        
-        <div class="form-control">
-          <label for="purpose">Purpose of taking loan</label>
-          <select name="purpose_loan" id="purpose">
-            <option value="select">Select</option>
-            <option value="0">Education Loan</option>
-            <option value="1">Loan for business establishment</option>
-            <option value="2">Loan for re-training</option>
-            <option value="3">New car purchase</option>
-            <option value="4">Old car repair</option>
-            <option value="5">Other repairs</option>
-            <option value="6">Purchase Of Domestic Appliances</option>
-            <option value="7">Furniture/ Equipement</option>
-            <option value="8">Purchase of radio/ TV</option>
-          </select>
-        </div> 
+                        <div class="input-field">
+                            <label for="loan-amount">Loan amount taken</label>
+                            <input id="loan-amount"  type="number" name="loanamount" value="AmountOfLoan" placeholder="Amount" required>
+                        </div>
 
+                        <div class="input-field">
+                            <label for="current">Number of loans taken from current bank</label>
+                            <input id="current"  type="number" name="lfcurrent" value="people" placeholder="People" required>
+                        </div>
 
-      <div class="form-control">
-        <label for="loan-amount">Loan amount taken</label>
-       <input id="loan-amount"  type="number" name="loanamount" value="AmountOfLoan" placeholder="Amount">
-        </div> 
+                        <div class="input-field">
+                            <label for="agea">Age of the applicant in Number of Years</label>
+                            <input id="agea"  type="number" name="age"  value="people" placeholder="People" required>
+                        </div>
 
-        <div class="form-control">
-          <label for="debtor">Guarantor / Debtor</label>
-          <select name="guarantor" id="debtor">
-            <option value="select">Select</option>
-            <option value="0">Co-applicant</option>
-            <option value="1">Guarantor</option>
-            <option value="2">None</option>
-          </select>
-        </div>
+                        <div class="input-field">
+                            <label for="loan">Loan History</label>
+                            <select name="loan_history" id="loan" required>
+                                <option value="select" disabled selected>Select Loan History</option>
+                                <option value="0">All loans at this bank paid back duly</option>
+                                <option value="1">Critical account/ other loan existing(not at this bank)</option>
+                                <option value="2">Delay in apying of loans in the past</option>
+                                <option value="3">existing loans paid back duly till now</option>
+                                <option value="4">No loans taken/All loans paid back duly</option>
+                            </select>
+                        </div>
 
-       
-        <div class="form-control">
-          <label for="year">No. of yeras of employment</label>
-          <select name="employment" id="year">
-            <option value="select">Select</option>
-            <option value="0">Between 1 and 4 yeras</option>
-            <option value="1">Greater than 4 year</option>
-            <option value="2">Less than 1 year</option>
-            <option value="3">Unemployed</option>
-          </select>
-        </div>
-      
-        <div class="form-control">
-          <label for="lang">Marital status</label>
-          <select name="marital" id="lang">
-            <option value="select">Select </option>
-            <option value="0">Female and divorced / Separated / Married</option>
-            <option value="1">Male & Divorced / Widowed </option>
-            <option value="2">Male & Married / Widowed </option> 
-            <option value="3">Male & Single </option>
-          </select>
-        </div>
-        
-        <div class="form-control">
-          <label for="current">Number of loans taken from current bank</label>
-          <input id="current"  type="number" name="lfcurrent" value="people" placeholder="People">
-        </div> 
-        
-        <div class="form-control">
-          <label for="agea">Age of the applicant in Number of Years</label>
-          <input id="agea"  type="number" name="age"  value="people" placeholder="People">
-        </div> 
+                        <div class="input-field">
+                            <label for="purpose">Purpose of taking loan</label>
+                            <select name="purpose_loan" id="purpose" required>
+                                <option value="select" disabled selected>Select the purpose of loan </option>
+                                <option value="0">Education Loan</option>
+                                <option value="1">Loan for business establishment</option>
+                                <option value="2">Loan for re-training</option>
+                                <option value="3">New car purchase</option>
+                                <option value="4">Old car repair</option>
+                                <option value="5">Other repairs</option>
+                                <option value="6">Purchase Of Domestic Appliances</option>
+                                <option value="7">Furniture/ Equipement</option>
+                                <option value="8">Purchase of radio/ TV</option>
+                            </select>
+                        </div>
 
-        <div class="form-control">
-          <label for="am">Amount in current account</label>
-          <select name="current_account" id="am">
-            <option value="select">Select </option>
-            <option value="0">Between 0 and 200 </option> 
-            <option value="1">>200 </option>
-            <option value="2">Less than 0</option>
-            <option value="3">No current account</option>
-          </select>
-        </div> 
+                        <div class="input-field">
+                            <label for="debtor">Guarantor / Debtor</label>
+                            <select name="guarantor" id="debtor" required>
+                            <option value="select" disabled selected>Select the type </option>
+                            <option value="0">Co-applicant</option>
+                            <option value="1">Guarantor</option>
+                            <option value="2">None</option>
+                            </select>
+                        </div>
+                        
+                        <div class="input-field">
+                            <label for="year">Number of years of Employment</label>
+                            <select name="employment" id="year" required>
+                                <option value="select" disabled selected>Select the number of Employment years </option>
+                                <option value="0">Between 1 and 4 yeras</option>
+                                <option value="1">Greater than 4 year</option>
+                                <option value="2">Less than 1 year</option>
+                                <option value="3">Unemployed</option>
+                            </select>
+                        </div> 
+                    
+                        <div class="input-field">
+                            <label for="lang">Marital status</label>
+                            <select name="marital" id="lang" required>
+                                <option value="select" disabled selected>Select Martial Status </option>
+                                <option value="0">Female and divorced / Separated / Married</option>
+                                <option value="1">Male & Divorced / Widowed </option>
+                                <option value="2">Male & Married / Widowed </option> 
+                                <option value="3">Male & Single </option>
+                            </select>
+                        </div>
+    
+                        <div class="input-field">
+                            <label for="am">Amount in current account</label>
+                            <select name="current_account" id="am" required>
+                                <option value="select" disabled selected>Select the Amount </option>
+                                <option value="0">Between 0 and 200 </option> 
+                                <option value="1">200 </option>
+                                <option value="2">Less than 0</option>
+                                <option value="3">No current account</option>
+                            </select>
+                        </div> 
 
-        <div class="form-control">
-          <label for="sa">Amount in savings account</label>
-          <select name="savings_account" id="sa">
-            <option value="select">Select </option>
-            <option value="0">Between 100 and 500 </option> 
-            <option value="1">Between 500 and 1000 </option> 
-            <option value="2">>1000 </option>
-            <option value="3">Less than 100</option>
-            <option value="4">No savings account</option>
-          </select>
-        </div>
-        
-        <div class="form-control">
-          <label for="income">% of income paid as installment</label>
-          <input id="income"  type="number" name="income" value="people" placeholder="People">
-        </div> 
-        
-        <div class="form-control">
-          <label for="pla">Other loan plans taken</label>
-          <select name="plans" id="pla">
-            <option value="select">Select </option>
-            <option value="0">Bank</option>
-            <option value="1">None</option>
-            <option value="2">Stores</option>
-          </select>
-        </div>
-        
-        <div class="form-control">
-          <label for="wa">Working Abroad</label>
-          <select name="abroad" id="wa">
-            <option value="select">Select </option>
-            <option value="0">No</option>
-            <option value="1">Yes</option>
-          </select>
-        </div> 
-        
-        <div class="form-control">
-          <label for="te">Is there telephone Number available</label>
-          <select name="telephone" id="te">
-            <option value="select">Select </option>
-            <option value="0">No</option>
-            <option value="1">Yes</option>
-          </select>
-        </div> 
-        
-        <div class="form-control">
-          <label for="op">Owned Property</label>
-          <select name="property" id="op">
-            <option value="select">Select </option>
-            <option value="0">No Property</option>
-            <option value="1">Real Estate</option>
-            <option value="2">Building society savings agreement / life Insurance</option>
-            <option value="3">Car/ Other Property</option>
-          </select>
+                        
+                    </div>
+                </div>
+            </div>
+            <button class="nextBtn">
+                <span class="btnText">Next</span>
+                <i class="uil uil-navigator"></i>
+            </button>
         </div>
 
-        <div class="form-control">
-          <label for="jp">Type of job performed</label>
-          <select name="job" id="jp">
-            <option value="select">Select </option>
-            <option value="0">Management / Self-Employed / Highly Qualified</option>
-            <option value="1">Skilled/official</option>
-            <option value="2">UnSkilled - no-resident / Unemployed</option>
-            <option value="3">UnSkilled - resident</option>
-          </select>
-        </div> 
+        <div class="form second">
+            <div class="view">
+                <div class="image">
+                    <img src="https://github.com/AdityaLahane-2003/Enosium23/blob/master/templates/images/image.png?raw=true" width="400">
+                </div>
+                <div class="details address">
+                    <span class="title">Loan Details</span>
+                    <div class="fields">
 
-        <div class="form-control">
-          <label for="house">Type of Housing</label>
-          <select name="housing" id="house">
-            <option value="select">Select </option>
-            <option value="0">For free</option>
-            <option value="1">Own</option>
-            <option value="2">Rent</option> 
-          </select>
-        </div> 
-        
-        <div class="form-control">
-          <label for="address">Number of years of stay in current address</label>
-          <input id="address"  type="number" name="currentaddress" value="people" placeholder="People">
-        </div> 
-  
-        <div class="form-control">
-          <label for="duration">Time duration for laon</label>
-          <input id="duration" name="duration"  type="number" value="people" placeholder="People">
-        </div> 
-  
-        <button class="btn btn-lg btn-primary" type="submit">
-          Predict
-        </button>
-        {% if label  %}
-            {% if label == 1 %}
-                <p class="btn btn-lg btn-success">Will Purchase</p>
-            {% endif %}
-            {% if label == -1 %}
-                <p class="btn btn-lg btn-danger">Will Not Purchase</p>
-            {% endif %}
-        {% endif %}
-      <p class="mt-5 mb-3 text-muted">&copy; Alpheratz</p>
+                        <div class="input-field">
+                            <label for="address">Number of years of stay in current address</label>
+                            <input id="address"  type="number" name="currentaddress" value="people" placeholder="People" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="duration">Time duration for laon</label>
+                            <input id="duration" name="duration"  type="number" value="people" placeholder="People" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="income">% of income paid as installment</label>
+                            <input id="income"  type="number" name="income" value="people" placeholder="People"  required>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="sa">Amount in savings account</label>
+                            <select name="savings_account" id="sa" required>
+                                <option value="select" disabled selected>Select the Amount </option>
+                                <option value="0">Between 100 and 500 </option> 
+                                <option value="1">Between 500 and 1000 </option> 
+                                <option value="2">1000 </option>
+                                <option value="3">Less than 100</option>
+                                <option value="4">No savings account</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="pla">Other loan plans taken</label>
+                            <select name="plans" id="pla" required>
+                                <option value="select" disabled selected>Select loan plans </option>
+                                <option value="0">Bank</option>
+                                <option value="1">Stores</option>
+                                <option value="2">None</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="wa">Are you Working Abroad?</label>
+                            <select name="abroad" id="wa" required>
+                                <option value="select" disabled selected>Select an option </option>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label for="te">Is there telephone Number available?</label>
+                            <select name="telephone" id="te" required>
+                                <option value="select" disabled selected>Select an option </option>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="op">Tye of Owned Property</label>
+                            <select name="property" id="op" required>
+                            <option value="select" disabled selected>Select the type </option>
+                            <option value="0">No Property</option>
+                            <option value="1">Real Estate</option>
+                            <option value="2">Building society savings agreement / life Insurance</option>
+                            <option value="3">Car/ Other Property</option>
+                            </select>
+                        </div>
+                    
+                        <div class="input-field">
+                            <label for="jp">Type of job performed</label>
+                            <select name="job" id="jp" required>
+                                <option value="select" disabled selected>Select job type</option>
+                                <option value="0">Management / Self-Employed / Highly Qualified</option>
+                                <option value="1">Skilled/official</option>
+                                <option value="2">UnSkilled - no-resident / Unemployed</option>
+                                <option value="3">UnSkilled - resident</option>
+                            </select>
+                        </div>
+                        
+                        <div class="input-field">
+                            <label for="house">Type of Housing</label>
+                            <select name="housing" id="house" required>
+                                <option value="select" disabled selected>Select Housing Type</option>
+                                <option value="0">For free</option>
+                                <option value="1">Own</option>
+                                <option value="2">Rent</option> 
+                            </select>
+                        </div> 
+                        
+                    </div>
+                
+                </div> 
+            </div>   
+                    
+            <div class="buttons">
+    
+                <button class="submit" type="submit">
+                    <span class="btnText">Predict!</span>
+                    <i class="uil uil-navigator"></i>
+                </button>
+
+                <button class="backBtn">
+                    <i class="uil uil-navigator"></i>
+                    <span class="btnText">Back</span>
+                </button>
+            </div>
+            
+        </div>
     </form>
+    {% if label  %}
+        {% if label == 1 %}
+        <div class="adi">
+            <p class="aditya">Will Default</p>
+        </div>
+        {% endif %}
+        {% if label == -1 %}
+        <div class="adi">
+            <p class="aditya">Will Not Default</p>
+        </div>
+        {% endif %}
+    {% endif %}
+  <p class="mt-5 mb-3 text-muted">&copy; Alpheratz</p>
+  </div>
+  <!-- <script src="script.js"></script> -->
+  <script>
+    const form = document.querySelector("form"),
+      nextBtn = form.querySelector(".nextBtn"),
+      backBtn = form.querySelector(".backBtn"),
+      allInput = form.querySelectorAll(".first input")
+
+nextBtn.addEventListener("click", ()=> {
+    allInput.forEach(input => {
+        if(input.value != ""){
+            form.classList.add('secActive');
+        }else{
+            form.classList.remove('secActive');
+        }
+    })
+})
+
+backBtn.addEventListener("click", ()=> form.classList.remove('secActive'));
+  </script>
   </body>
   </html>
